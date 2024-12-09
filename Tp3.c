@@ -1,4 +1,4 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <stdlib.h>
 
 // Definition of the list element structure
@@ -6,6 +6,28 @@ typedef struct element {
     int val;
     struct element *next;
 } element;
+
+// Function prototypes
+element* createList();
+element* loadList(int* arr, int n);
+void displayList(element* head);
+element* removeLast(element* head);
+element* addAtBeginning(element* head, int val);
+void emptyList(element* head);
+
+
+int main() {
+    int arr[10] = {1, 3, 5, 7, 8, 10, 9, 11, 13, 20};
+    element* list = createList();
+    element* L = loadList(arr, 10);
+    displayList(L);
+    element* L1 = removeLast(L);
+    displayList(L1);
+    element* L2 = addAtBeginning(L1, 40);
+    displayList(L2);
+    emptyList(L2);
+    return 0;
+}
 
 // Function to create an empty list
 element* createList() {
@@ -74,17 +96,3 @@ void emptyList(element* head) {
     }
     printf("la liste est vide\n");
 }
-
-int main() {
-    int arr[10] = {1, 3, 5, 7, 8, 10, 9, 11, 13, 20};
-    element* list = createList();
-    element* L = loadList(arr, 10);
-    displayList(L);
-    element* L1 = removeLast(L);
-    displayList(L1);
-    element* L2 = addAtBeginning(L1, 40);
-    displayList(L2);
-    emptyList(L2);
-    return 0;
-}
-
